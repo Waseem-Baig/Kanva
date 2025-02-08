@@ -7,6 +7,11 @@ export default {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        jost: ["Jost", "sans-serif"],
+        "dm-sans": ["DM Sans", "sans-serif"],
+        baloo2: ["Baloo 2", "sans-serif"],
+      },
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",

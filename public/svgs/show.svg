@@ -1,0 +1,23 @@
+<svg
+                      width="15"
+                      height="13"
+                      viewBox="0 0 15 13"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <g id="Group 1">
+                        <path
+                          id="Vector"
+                          d="M7.5 0C3.357 0 0 5.5 0 5.5S3.357 11 7.5 11 15 5.5 15 5.5 11.643 0 7.5 0zM7.5 9.5C5.014 9.5 3 7.486 3 5.5S5.014 1.5 7.5 1.5 12 3.514 12 5.5 9.986 9.5 7.5 9.5z"
+                          fill="#666666"
+                          fillOpacity="0.8"
+                        />
+                        <circle
+                          cx="7.5"
+                          cy="5.5"
+                          r="2"
+                          fill="#666666"
+                          fillOpacity="0.8"
+                        />
+                      </g>
+                    </svg>
