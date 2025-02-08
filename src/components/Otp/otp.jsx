@@ -60,7 +60,7 @@ const OTPInput = ({ numInputs, onComplete }) => {
 
 const OtpPage = () => {
   const router = useRouter();
-  const temp_email = sessionStorage.getItem("email");
+  // const temp_email = sessionStorage.getItem("email");
   const [email, setEmail] = useState(temp_email);
   const [mobile, setMobile] = useState("7842847858");
   const [emailOtp, setEmailOtp] = useState("");
