@@ -66,14 +66,6 @@ const OtpPage = () => {
   const [emailOtp, setEmailOtp] = useState("");
   const [error, setError] = useState("");
 
-  // Access sessionStorage safely
-  useEffect(() => {
-    if (typeof window !== "undefined") {
-      const tempEmail = sessionStorage.getItem("email");
-      setEmail(tempEmail || "");
-    }
-  }, []);
-
   const sendOtp = async () => {
     // Logic to send OTP
   };
