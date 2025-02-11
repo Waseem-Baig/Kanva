@@ -1,9 +1,6 @@
 "use client";
 import { useRouter, useSearchParams } from "next/navigation";
 import React, { useState, useRef } from "react";
-// import axios from "axios";
-
-// const URL = process.env.NEXT_PUBLIC_API_BASE_URL;
 
 const OTPInput = ({ numInputs, onComplete }) => {
   const inputRefs = useRef([]);
@@ -60,7 +57,6 @@ const OTPInput = ({ numInputs, onComplete }) => {
 
 const OtpPage = () => {
   const router = useRouter();
-  // const temp_email = sessionStorage.getItem("email");
   const [email, setEmail] = useState(temp_email);
   const [mobile, setMobile] = useState("7842847858");
   const [emailOtp, setEmailOtp] = useState("");
@@ -69,31 +65,9 @@ const OtpPage = () => {
   const searchParams = useSearchParams();
   const redirectTo = searchParams.get("redirectTo");
 
-  const sendOtp = async () => {
-    // try {
-    //   await axios.post(`${URL}/send-otp`, { email, mobile });
-    // } catch (err) {
-    //   setError("Failed to send OTP. Please try again.");
-    // }
-  };
+  const sendOtp = async () => {};
 
   const verifyOtp = async () => {
-    // try {
-    //   const payload = {
-    //     email,
-    //     email_otp: Number(emailOtp),
-    //     mobile_otp: Number(mobileOtp),
-    //   };
-    //   const response = await axios.post(`${URL}/verify_otp`, payload);
-    //   if (response.data.message === "Verification successful") {
-    //     router.push(`${redirectTo}` || "/");
-    //     sessionStorage.removeItem("email");
-    //   } else {
-    //     setError(response.data.message || "OTP verification failed.");
-    //   }
-    // } catch (err) {
-    //   setError("OTP verification failed. Please try again.");
-    // }
     router.push(`${redirectTo}` || "/");
   };
 
