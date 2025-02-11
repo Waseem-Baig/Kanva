@@ -58,20 +58,27 @@ const OTPInput = ({ numInputs, onComplete }) => {
 const OtpPage = () => {
   const router = useRouter();
   const searchParams = useSearchParams();
-  const redirectTo = searchParams.get("redirectTo") || "/";
 
   // State to store email
-  const [email, setEmail] = useState("");
+  const [email, setEmail] = useState("waseembaig9490@gmail.com");
   const [mobile, setMobile] = useState("7842847858");
   const [emailOtp, setEmailOtp] = useState("");
   const [error, setError] = useState("");
+  const [redirectTo, setRedirectTo] = useState("/");
 
-  const sendOtp = async () => {
-    // Logic to send OTP
-  };
+  useEffect(() => {
+    const param = searchParams.get("redirectTo");
+    if (param) {
+      setRedirectTo(param);
+    }
+  }, [searchParams]); // Update state when searchParams change
 
   const verifyOtp = async () => {
     router.push(redirectTo);
+  };
+
+  const sendOtp = async () => {
+    // Logic to send OTP
   };
 
   return (
