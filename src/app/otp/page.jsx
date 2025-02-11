@@ -1,13 +1,6 @@
 "use client";
-import OtpPage from "@/components/Otp/otp";
-import React from "react";
+import dynamic from "next/dynamic";
 
-const OTP = () => {
-  return (
-    <div>
-      <OtpPage />
-    </div>
-  );
-};
+const OtpPage = dynamic(() => import("@/components/Otp/otp"), { ssr: false });
 
-export default OTP;
+export default OtpPage;
