@@ -1,6 +1,6 @@
 "use client";
 import { useRouter, useSearchParams } from "next/navigation";
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 
 const OTPInput = ({ numInputs, onComplete }) => {
   const inputRefs = useRef([]);
@@ -57,18 +57,29 @@ const OTPInput = ({ numInputs, onComplete }) => {
 
 const OtpPage = () => {
   const router = useRouter();
-  const [email, setEmail] = useState(temp_email);
+  const searchParams = useSearchParams();
+  const redirectTo = searchParams.get("redirectTo") || "/";
+
+  // State to store email
+  const [email, setEmail] = useState("");
   const [mobile, setMobile] = useState("7842847858");
   const [emailOtp, setEmailOtp] = useState("");
-  const [mobileOtp, setMobileOtp] = useState("");
   const [error, setError] = useState("");
-  const searchParams = useSearchParams();
-  const redirectTo = searchParams.get("redirectTo");
 
-  const sendOtp = async () => {};
+  // Access sessionStorage safely
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const tempEmail = sessionStorage.getItem("email");
+      setEmail(tempEmail || "");
+    }
+  }, []);
+
+  const sendOtp = async () => {
+    // Logic to send OTP
+  };
 
   const verifyOtp = async () => {
-    router.push(`${redirectTo}` || "/");
+    router.push(redirectTo);
   };
 
   return (
