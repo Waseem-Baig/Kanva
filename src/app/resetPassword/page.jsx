@@ -1,3 +1,4 @@
+"use client";
 import Reset from "@/components/Reset Password/resetPassword";
 import React from "react";
 

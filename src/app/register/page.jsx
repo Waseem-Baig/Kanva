@@ -1,3 +1,4 @@
+"use client";
 import SignUpPage from "@/components/Register/register";
 import React from "react";
 

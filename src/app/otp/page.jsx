@@ -1,3 +1,4 @@
+"use client";
 import OtpPage from "@/components/Otp/otp";
 import React from "react";
 
