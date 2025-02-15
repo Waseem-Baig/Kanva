@@ -34,7 +34,7 @@ const Users = () => {
           <p className="text-[#FFFFFF] font-baloo2 font-semibold">Add user</p>
         </button>
       </div>
-      <div className="overflow-x-auto text-[#FFFFFF] text-center">
+      <div className="overflow-x-scroll scrollbar-hide text-[#FFFFFF] text-center">
         <table className="w-full border-collapse bg-[#05061480] shadow-md rounded-lg overflow-hidden">
           <thead>
             <tr>
@@ -74,18 +74,22 @@ const Users = () => {
                   {user.lastActivated}
                 </td>
                 <td className="px-2 py-3">{user.createdOn}</td>
-                <td className="px-2 py-3 flex justify-between bg-[#05061480] min-w-[230px]">
-                  <button className="text-[#FF453A] rounded-md">Revoke</button>
-                  <button className="text-[#0A84FF] rounded-md">Pause</button>
-                  <button className="p-2 bg-[#5420A4] text-white rounded-md flex gap-2 items-center w-auto">
-                    Edit
-                    <Image
-                      src={"/svgs/edit.svg"}
-                      width={17}
-                      height={17}
-                      alt="Edit"
-                    />
-                  </button>
+                <td className="px-2 py-3 bg-[#05061480] min-w-[230px]">
+                  <div className="flex justify-between items-center w-full">
+                    <button className="text-[#FF453A] rounded-md">
+                      Revoke
+                    </button>
+                    <button className="text-[#0A84FF] rounded-md">Pause</button>
+                    <button className="p-2 bg-[#5420A4] text-white rounded-md flex gap-2 items-center w-auto">
+                      Edit
+                      <Image
+                        src={"/svgs/edit.svg"}
+                        width={17}
+                        height={17}
+                        alt="Edit"
+                      />
+                    </button>
+                  </div>
                 </td>
               </tr>
             ))}
