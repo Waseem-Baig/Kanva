@@ -204,7 +204,7 @@ const Users = () => {
         </div>
 
         <button className="bg-[#5420A4] text-white py-2 px-4 rounded-md w-[30%] ">
-          Submit
+          Add New User
         </button>
       </Popup>
     </div>
