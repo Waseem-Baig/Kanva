@@ -1,6 +1,6 @@
 "use client";
-import Statistics from "./DashboardComponents/statistics";
 import AvatarList from "./DashboardComponents/AvatarPage";
+import Statistics from "./DashboardComponents/Statistics";
 
 const DashBoardPage = () => {
   return (
