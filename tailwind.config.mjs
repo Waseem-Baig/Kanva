@@ -10,7 +10,7 @@ export default {
       fontFamily: {
         jost: ["Jost", "sans-serif"],
         "dm-sans": ["DM Sans", "sans-serif"],
-        baloo2: ["Baloo 2", "sans-serif"],
+        baloo2: ["var(--font-baloo2)", "sans-serif"],
       },
       colors: {
         background: "var(--background)",
@@ -18,5 +18,5 @@ export default {
       },
     },
   },
-  plugins: [],
+  plugins: [require("tailwind-scrollbar-hide")], // Add this plugin
 };

@@ -91,7 +91,7 @@ const LoginPage = () => {
               <div className="flex justify-end pt-1">
                 <Link
                   href="/forgetPassword"
-                  className="md:text-[10px] lg:text-[14px] text-[#F5F2FA]"
+                  className="md:text-[10px] lg:text-[14px] text-[#F5F2FA] font-baloo2 font-medium"
                 >
                   Forgot Password?
                 </Link>
@@ -99,13 +99,13 @@ const LoginPage = () => {
             </div>
 
             <button
-              className="w-full bg-[#5420A4] py-3 border border-[#5420A4] rounded-lg text-white font-baloo2 md:text-[10px] lg:text-[14px]"
+              className="w-full bg-[#5420A4] py-3 border border-[#5420A4] rounded-lg text-white font-baloo2 md:text-[10px] lg:text-[14px] font-semibold"
               onClick={handleSignIn}
             >
               Login
             </button>
 
-            <div className="flex justify-center border border-[#9747FFBF] bg-black/20 py-3 rounded-lg text-[#F5F2FA] md:text-[10px] lg:text-[14px] w-full">
+            <div className="flex justify-center border border-[#9747FFBF] bg-black/20 py-3 rounded-lg text-[#F5F2FA] md:text-[10px] lg:text-[14px] w-full font-baloo2">
               <p>
                 Don’t have an account?{" "}
                 <Link href="/register" className="underline">

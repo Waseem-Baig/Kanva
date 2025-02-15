@@ -11,9 +11,11 @@
   "dependencies": {
     "@fontsource/baloo-2": "^5.1.1",
     "@fontsource/jost": "^5.1.2",
+    "@next/font": "^14.2.15",
     "next": "15.1.6",
     "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "react-dom": "^19.0.0",
+    "tailwind-scrollbar-hide": "^2.0.0"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",

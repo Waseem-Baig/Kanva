@@ -38,7 +38,7 @@ const OTPInput = ({ numInputs, onComplete }) => {
   };
 
   return (
-    <div className="flex w-full justify-between">
+    <div className="flex w-auto justify-between">
       {Array.from({ length: numInputs }, (_, index) => (
         <input
           key={index}
@@ -103,13 +103,13 @@ const OtpPage = () => {
           </h2>
           {error && <p className="text-red-500 text-center">{error}</p>}
           <div className="mt-4">
-            <label className="text-[#F5F2FA] block mb-1 font-jost">
+            <label className="text-[#F5F2FA] block mb-2 font-baloo2">
               Enter OTP Sent to Email {email}
             </label>
             <OTPInput numInputs={4} onComplete={setEmailOtp} />
             <button
               onClick={sendOtp}
-              className="text-[#F5F2FA] block my-2 font-jost underline"
+              className="text-[#F5F2FA] block my-2 font-baloo2 underline"
             >
               Resend OTP
             </button>
@@ -117,7 +117,7 @@ const OtpPage = () => {
 
           <button
             onClick={verifyOtp}
-            className="w-full bg-[#5420A4] py-3 border border-[#5420A4] rounded-lg text-white text-[12px] mb-1 mt-2"
+            className="w-full bg-[#5420A4] py-3 border border-[#5420A4] rounded-lg text-white text-[14px] mb-1 mt-2 font-semibold font-baloo2"
           >
             Verify OTP
           </button>
