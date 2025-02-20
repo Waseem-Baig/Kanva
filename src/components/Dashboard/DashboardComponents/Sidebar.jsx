@@ -9,27 +9,31 @@ const Sidebar = ({ sidebarOpen, isMobile, setSidebarOpen }) => {
 
   const renderMenu = () => (
     <div className="flex flex-col w-full px-2 gap-4 text-[#E0E0E0]">
-      {menuItems.map((item) => (
-        <Link
-          key={item.label}
-          href={item.href}
-          className={`w-full py-4 rounded-lg flex ${
-            !sidebarOpen && "justify-center"
-          } items-center gap-3 px-4 transition-all duration-500 tracking-wide relative
-            ${
-              pathname === item.href
-                ? "bg-[linear-gradient(299.53deg,rgba(0,0,0,0.5)_29.05%,rgba(84,32,164,0.5)_100.44%)] shadow-[inset_-1px_-2px_6px_0px_#9747FFBF] text-lg"
-                : "hover:translate-x-2 opacity-75 hover:opacity-100 hover:before:opacity-100 hover:border-l text-sm hover:text-lg hover:tracking-wider"
-            }`}
-        >
-          <Image src={item.icon} width={25} height={25} alt={item.label} />
-          {sidebarOpen && (
-            <p className="font-jost font-semibold transition-all duration-0 tracking-wide">
-              {item.label}
-            </p>
-          )}
-        </Link>
-      ))}
+      {menuItems.map((item) => {
+        const isActive = pathname.startsWith(item.href); // Check if the path starts with the item's href
+
+        return (
+          <Link
+            key={item.label}
+            href={item.href}
+            className={`w-full py-4 rounded-lg flex ${
+              !sidebarOpen && "justify-center"
+            } items-center gap-3 px-4 transition-all duration-500 tracking-wide relative
+              ${
+                isActive
+                  ? "bg-[linear-gradient(299.53deg,rgba(0,0,0,0.5)_29.05%,rgba(84,32,164,0.5)_100.44%)] shadow-[inset_-1px_-2px_6px_0px_#9747FFBF] text-lg"
+                  : "hover:translate-x-2 opacity-75 hover:opacity-100 hover:before:opacity-100 hover:border-l text-sm hover:text-lg hover:tracking-wider hover:bg-[radial-gradient(52.2%_91.51%_at_0%_49.21%,rgba(159,121,217,0.3)_0%,rgba(84,32,164,0.3)_33.5%,rgba(0,0,0,0)_100%)]"
+              }`}
+          >
+            <Image src={item.icon} width={25} height={25} alt={item.label} />
+            {sidebarOpen && (
+              <p className="font-jost font-semibold transition-all duration-0 tracking-wide">
+                {item.label}
+              </p>
+            )}
+          </Link>
+        );
+      })}
     </div>
   );
 
@@ -68,7 +72,7 @@ const Sidebar = ({ sidebarOpen, isMobile, setSidebarOpen }) => {
 const menuItems = [
   { icon: "/svgs/home.svg", label: "Dashboard", href: "/dashboard" },
   { icon: "/svgs/iamuser.svg", label: "I AM USER", href: "/iamuser" },
-  { icon: "/svgs/mode.svg", label: "Mode", href: "/mode" },
+  { icon: "/svgs/mode.svg", label: "Modal", href: "/modal" },
   { icon: "/svgs/history.svg", label: "History", href: "/history" },
   {
     icon: "/svgs/subscription.svg",

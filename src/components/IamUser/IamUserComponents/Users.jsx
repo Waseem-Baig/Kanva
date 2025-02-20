@@ -76,10 +76,12 @@ const Users = () => {
                 <td className="px-2 py-3">{user.createdOn}</td>
                 <td className="px-2 py-3 bg-[#05061480] min-w-[230px]">
                   <div className="flex justify-between items-center w-full">
-                    <button className="text-[#FF453A] rounded-md">
+                    <button className="text-[#FF453A] rounded-md p-2 hover:bg-[#FF453A80] hover:text-[#FFFFFF]">
                       Revoke
                     </button>
-                    <button className="text-[#0A84FF] rounded-md">Pause</button>
+                    <button className="text-[#0A84FF] rounded-md p-2 hover:bg-[#0A84FF80] hover:text-[#FFFFFF]">
+                      Pause
+                    </button>
                     <button className="p-2 bg-[#5420A4] text-white rounded-md flex gap-2 items-center w-auto">
                       Edit
                       <Image
