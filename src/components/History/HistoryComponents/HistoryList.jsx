@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import HistoryCard from "./HistoryCard";
-import historyData from "../../../../data/HistoryData";
+import historyData from "../../../../data/historyData";
 
 const HistoryList = () => {
   const [hData, setHData] = useState(historyData);
