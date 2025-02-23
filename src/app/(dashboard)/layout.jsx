@@ -48,11 +48,9 @@ const Layout = ({ children }) => {
         <Navbar setSidebarOpen={toggleSidebar} />
 
         {/* Dynamic Page Content */}
-        <div className="flex flex-col gap-4">
-          {children}
-          <div className="w-full mt-auto bottom-0 sticky">
-            <Footer />
-          </div>
+        <div className="flex flex-col gap-4 pb-4">{children}</div>
+        <div className="w-full mt-auto bottom-0 sticky">
+          <Footer />
         </div>
       </div>
     </div>
