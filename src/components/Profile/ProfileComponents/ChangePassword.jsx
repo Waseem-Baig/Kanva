@@ -1,6 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import Image from "next/image"; // Import Image component for Next.js
+import Changed from "./Changed";
 
 const ChangePassword = ({ isOpen, onClose }) => {
   const [oldPassword, setOldPassword] = useState("");
@@ -9,6 +10,7 @@ const ChangePassword = ({ isOpen, onClose }) => {
   const [error, setError] = useState(""); // Error message state
   const [showNewPassword, setShowNewPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+  const [isChanged, setIsChanged] = useState(false); // State to track successful password change
 
   if (!isOpen) return null;
 
@@ -29,7 +31,7 @@ const ChangePassword = ({ isOpen, onClose }) => {
     // Clear error and proceed with password change logic
     setError("");
     console.log("Password changed successfully!");
-    onClose(); // Close modal after successful submission
+    setIsChanged(true); // Set isChanged to true to render the Changed component
   };
 
   return (
@@ -45,90 +47,99 @@ const ChangePassword = ({ isOpen, onClose }) => {
           </button>
         </div>
 
-        <form onSubmit={handleSubmit}>
-          {/* Old Password Field */}
-          <div className="flex flex-col gap-2 flex-1 mb-4">
-            <label className="text-[#F5F2FA] text-md font-semibold">
-              Enter Old Password
-            </label>
-            <input
-              type="password"
-              value={oldPassword}
-              onChange={(e) => setOldPassword(e.target.value)}
-              placeholder="Enter Old Password"
-              className="w-auto flex-shrink p-3 rounded-lg bg-[#F5F2FA] shadow-[inset_0px_4px_8px_0px_#0000004D] text-black placeholder:text-[#878787]"
-            />
-          </div>
-
-          {/* Error Message */}
-          {error && <p className="text-red-500 text-sm mb-4">{error}</p>}
-
-          {/* New Password Field with Show/Hide Icon */}
-          <div className="flex flex-col gap-2 flex-1 mb-4">
-            <label className="text-[#F5F2FA] text-md font-semibold">
-              Enter New Password
-            </label>
-            <div className="relative w-auto flex-grow">
+        {/* Render Changed component if password change is successful */}
+        {isChanged ? (
+          <Changed onClose={onClose} />
+        ) : (
+          <form onSubmit={handleSubmit}>
+            {/* Old Password Field */}
+            <div className="flex flex-col gap-2 flex-1 mb-4">
+              <label className="text-[#F5F2FA] text-md font-semibold">
+                Enter Old Password
+              </label>
               <input
-                type={showNewPassword ? "text" : "password"}
-                value={newPassword}
-                onChange={(e) => setNewPassword(e.target.value)}
-                placeholder="Enter New Password"
-                className="w-full p-3 rounded-lg bg-[#F5F2FA] shadow-[inset_0px_4px_8px_0px_#0000004D] text-black placeholder:text-[#878787] pr-12"
+                type="password"
+                value={oldPassword}
+                onChange={(e) => setOldPassword(e.target.value)}
+                placeholder="Enter Old Password"
+                className="w-auto flex-shrink p-3 rounded-lg bg-[#F5F2FA] shadow-[inset_0px_4px_8px_0px_#0000004D] text-black placeholder:text-[#878787]"
               />
-              <button
-                type="button"
-                onClick={() => setShowNewPassword(!showNewPassword)}
-                className="absolute inset-y-0 right-3 flex items-center"
-              >
-                <Image
-                  src={showNewPassword ? "/svgs/show.svg" : "/svgs/hidden.svg"}
-                  alt="Toggle Password"
-                  width={24}
-                  height={24}
-                />
-              </button>
             </div>
-          </div>
 
-          {/* Confirm Password Field with Show/Hide Icon */}
-          <div className="flex flex-col gap-2 flex-1 mb-4">
-            <label className="text-[#F5F2FA] text-md font-semibold">
-              Confirm Password
-            </label>
-            <div className="relative w-auto flex-grow">
-              <input
-                type={showConfirmPassword ? "text" : "password"}
-                value={confirmPassword}
-                onChange={(e) => setConfirmPassword(e.target.value)}
-                placeholder="Confirm Password"
-                className="w-full p-3 rounded-lg bg-[#F5F2FA] shadow-[inset_0px_4px_8px_0px_#0000004D] text-black placeholder:text-[#878787] pr-12"
-              />
-              <button
-                type="button"
-                onClick={() => setShowConfirmPassword(!showConfirmPassword)}
-                className="absolute inset-y-0 right-3 flex items-center"
-              >
-                <Image
-                  src={
-                    showConfirmPassword ? "/svgs/show.svg" : "/svgs/hidden.svg"
-                  }
-                  alt="Toggle Password"
-                  width={24}
-                  height={24}
+            {/* Error Message */}
+            {error && <p className="text-red-500 text-sm mb-4">{error}</p>}
+
+            {/* New Password Field with Show/Hide Icon */}
+            <div className="flex flex-col gap-2 flex-1 mb-4">
+              <label className="text-[#F5F2FA] text-md font-semibold">
+                Enter New Password
+              </label>
+              <div className="relative w-auto flex-grow">
+                <input
+                  type={showNewPassword ? "text" : "password"}
+                  value={newPassword}
+                  onChange={(e) => setNewPassword(e.target.value)}
+                  placeholder="Enter New Password"
+                  className="w-full p-3 rounded-lg bg-[#F5F2FA] shadow-[inset_0px_4px_8px_0px_#0000004D] text-black placeholder:text-[#878787] pr-12"
                 />
-              </button>
+                <button
+                  type="button"
+                  onClick={() => setShowNewPassword(!showNewPassword)}
+                  className="absolute inset-y-0 right-3 flex items-center"
+                >
+                  <Image
+                    src={
+                      showNewPassword ? "/svgs/show.svg" : "/svgs/hidden.svg"
+                    }
+                    alt="Toggle Password"
+                    width={24}
+                    height={24}
+                  />
+                </button>
+              </div>
             </div>
-          </div>
 
-          {/* Submit Button */}
-          <button
-            type="submit"
-            className="bg-[#5420A4] text-white py-2 px-4 rounded-md mt-4 float-right"
-          >
-            Change Password
-          </button>
-        </form>
+            {/* Confirm Password Field with Show/Hide Icon */}
+            <div className="flex flex-col gap-2 flex-1 mb-4">
+              <label className="text-[#F5F2FA] text-md font-semibold">
+                Confirm Password
+              </label>
+              <div className="relative w-auto flex-grow">
+                <input
+                  type={showConfirmPassword ? "text" : "password"}
+                  value={confirmPassword}
+                  onChange={(e) => setConfirmPassword(e.target.value)}
+                  placeholder="Confirm Password"
+                  className="w-full p-3 rounded-lg bg-[#F5F2FA] shadow-[inset_0px_4px_8px_0px_#0000004D] text-black placeholder:text-[#878787] pr-12"
+                />
+                <button
+                  type="button"
+                  onClick={() => setShowConfirmPassword(!showConfirmPassword)}
+                  className="absolute inset-y-0 right-3 flex items-center"
+                >
+                  <Image
+                    src={
+                      showConfirmPassword
+                        ? "/svgs/show.svg"
+                        : "/svgs/hidden.svg"
+                    }
+                    alt="Toggle Password"
+                    width={24}
+                    height={24}
+                  />
+                </button>
+              </div>
+            </div>
+
+            {/* Submit Button */}
+            <button
+              type="submit"
+              className="bg-[#5420A4] text-white py-2 px-4 rounded-md mt-4 float-right"
+            >
+              Change Password
+            </button>
+          </form>
+        )}
       </div>
     </div>
   );
