@@ -3,6 +3,7 @@ import Link from "next/link";
 import React, { useState, useRef, useEffect } from "react";
 
 const AvatarCard = ({
+  id,
   name,
   gender,
   role,
@@ -47,7 +48,10 @@ const AvatarCard = ({
         >
           <ul className="py-2 text-sm text-[#FFFFFF] w-full">
             <li className="px-4 py-2 hover:bg-[linear-gradient(290.78deg,_rgba(55,32,84,0.5)_0%,_rgba(84,32,164,0.5)_100%)] cursor-pointer rounded-lg">
-              <Link href={`/profile`} className="block">
+              <Link
+                href={`/avatarHomePage/${name}?id=${id}&name=${name}`} // Direct string-based href
+                className="block"
+              >
                 Profile
               </Link>
             </li>

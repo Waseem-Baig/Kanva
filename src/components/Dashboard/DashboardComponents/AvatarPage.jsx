@@ -1,40 +1,10 @@
 import React, { useState } from "react";
 import AvatarCard from "./AvatarCard";
 import CreateAvatarCard from "./CreateAvatar";
+import AvatarData from "../../../../data/avatarsData";
 
 const AvatarList = () => {
-  const [avatars, setAvatars] = useState([
-    {
-      name: "Sunny",
-      gender: "Female",
-      role: "Security Reception",
-      status: "Active",
-      activeHours: 234,
-      totalScreens: 15,
-      activeScreens: 10,
-      avatarSrc: "/images/Avatarprofile1.png",
-    },
-    {
-      name: "Alex",
-      gender: "Male",
-      role: "System Admin",
-      status: "Inactive",
-      activeHours: 187,
-      totalScreens: 12,
-      activeScreens: 8,
-      avatarSrc: "/images/Avatarprofile2.png",
-    },
-    {
-      name: "Priya",
-      gender: "Female",
-      role: "HR Manager",
-      status: "Active",
-      activeHours: 298,
-      totalScreens: 20,
-      activeScreens: 15,
-      avatarSrc: "/images/Avatarprofile3.png",
-    },
-  ]);
+  const [avatars, setAvatars] = useState(AvatarData);
 
   // Function to duplicate an avatar
   const handleDuplicate = (avatar) => {

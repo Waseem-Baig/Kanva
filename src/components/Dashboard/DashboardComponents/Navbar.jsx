@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import React, { useState, useRef, useEffect } from "react";
 
-const Navbar = ({ setSidebarOpen, classes }) => {
+const Navbar = ({ setSidebarOpen, classes, isMobile }) => {
   const [isPopupOpen, setIsPopupOpen] = useState(false);
   const popupRef = useRef(null);
 
@@ -34,11 +34,11 @@ const Navbar = ({ setSidebarOpen, classes }) => {
         />
       </button>
       <p className="font-semibold">Hi, Cisco Pvt Ltd </p>
-      <p className="font-semibold">
+      <p className={`font-semibold ${isMobile && "hidden"}`}>
         <span className="text-[#D9D9D9] font-normal">Admin :</span> Waseem
       </p>
-      <p className="font-semibold">
-        <span className="text-[#D9D9D9] font-normal">Account ID :</span>{" "}
+      <p className={`font-semibold  ${isMobile && "hidden"}`}>
+        <span className={`text-[#D9D9D9] font-normal`}>Account ID :</span>{" "}
         #245689553
       </p>
       <div className="flex items-center gap-2 bg-[linear-gradient(180deg,_rgba(88,36,166,0.6)_0%,_rgba(101,54,173,0.6)_100%)] rounded-lg px-4 py-3 w-auto flex-grow">

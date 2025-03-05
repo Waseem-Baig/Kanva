@@ -8,6 +8,9 @@ export default {
   ],
   theme: {
     extend: {
+      screens: {
+        cu: "1166px",
+      },
       fontFamily: {
         jost: ["Jost", "sans-serif"],
         "dm-sans": ["DM Sans", "sans-serif"],
