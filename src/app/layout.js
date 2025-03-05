@@ -1,6 +1,14 @@
+"use client";
+
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import { AvatarProvider } from "@/context/AvatarContext";
+import dynamic from "next/dynamic"; // Import dynamic from Next.js
+
+// Dynamically import AvatarProvider with SSR disabled
+const AvatarProvider = dynamic(
+  () => import("@/context/AvatarContext").then((mod) => mod.AvatarProvider),
+  { ssr: false }
+);
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -12,21 +20,15 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-export const metadata = {
-  title: "Kanva",
-  description: "AI powered design tool",
-};
-
 export default function RootLayout({ children }) {
   return (
-    <AvatarProvider>
-      <html lang="en">
-        <body
-          className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-        >
-          {children}
-        </body>
-      </html>
-    </AvatarProvider>
+    <html lang="en">
+      <body
+        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+      >
+        {/* Wrap children with AvatarProvider */}
+        <AvatarProvider>{children}</AvatarProvider>
+      </body>
+    </html>
   );
 }

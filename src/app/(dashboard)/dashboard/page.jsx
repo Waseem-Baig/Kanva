@@ -1,3 +1,4 @@
+"use client";
 import DashBoardPage from "@/components/Dashboard/dashboard";
 import React from "react";
 
