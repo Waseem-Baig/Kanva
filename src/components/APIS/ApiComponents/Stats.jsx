@@ -7,7 +7,7 @@ const Stats = () => {
   return (
     <div className="flex gap-6 justify-between w-full flex-wrap">
       {/* Response Order Section */}
-      <div className="bg-[#05061480] rounded-lg p-4 w-auto min-w-[23vw] flex-grow h-[220px] overflow-y-auto scrollbar-hide flex flex-col gap-2">
+      <div className="bg-[#05061480] rounded-lg p-4 w-auto min-w-[23vw] flex-grow h-[220px] overflow-y-auto custom-scrollbar flex flex-col gap-2">
         <div className="flex justify-between items-center">
           <h2 className="text-[#FFFFFF] font-semibold">Response Order</h2>
           <Link
@@ -20,7 +20,7 @@ const Stats = () => {
 
         {/* Map through the statsData array */}
         {statsData.map((entry, index) => (
-          <div key={entry.id} className="w-full flex gap-4 items-center">
+          <div key={entry.id} className="w-full flex gap-4 items-center ">
             <div className="flex justify-center items-center px-4 py-3 bg-[#05061480] rounded-md font-bold">
               {index + 1} {/* Display the order number */}
             </div>
@@ -33,7 +33,7 @@ const Stats = () => {
       </div>
 
       {/* API Status Section */}
-      <div className="bg-[#05061480] rounded-lg p-4 min-w-[47vw] w-auto h-[220px] flex-grow overflow-y-auto scrollbar-hide flex flex-col gap-2">
+      <div className="bg-[#05061480] rounded-lg p-4 min-w-[47vw] w-auto h-[220px] flex-grow overflow-y-auto custom-scrollbar flex flex-col gap-2">
         <div className="flex justify-between items-center">
           <h2 className="text-[#FFFFFF] font-semibold">API Status</h2>
           <Link

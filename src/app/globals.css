@@ -1,7 +1,42 @@
+@import "@fontsource/jost/index.css";
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@import "@fontsource/jost/index.css";
+
+@layer utilities {
+  /* Scrollbar Styles */
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 8px; /* Scrollbar width */
+    height: 8px; /* Horizontal scrollbar height */
+  }
+
+  /* Scrollbar Track (Background) */
+  .custom-scrollbar::-webkit-scrollbar-track {
+    background: #d9d9d94d; /* Background color */
+    border-radius: 10px;
+  }
+
+  /* Scrollbar Handle (Thumb) */
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    background: linear-gradient(
+      299.53deg,
+      #000000 29.05%,
+      #372054 84.15%,
+      #5420a4 100.44%
+    );
+    border-radius: 10px;
+  }
+
+  /* Scrollbar Handle on Hover */
+  .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(
+      299.53deg,
+      #000000 20%,
+      #372054 70%,
+      #5420a4 90%
+    );
+  }
+}
 
 :root {
   --background: #ffffff;

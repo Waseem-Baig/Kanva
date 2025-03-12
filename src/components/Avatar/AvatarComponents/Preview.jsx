@@ -8,6 +8,7 @@ const Preview = () => {
   const [loading, setLoading] = useState(false); // State to track if the bot is processing
   const chatContainerRef = useRef(null); // Ref for the chat container
   const inputRef = useRef(null); // Ref for the input field
+  const [hasInputFocused, setHasInputFocused] = useState(false); // Track first input focus
 
   // Function to handle sending a message
   const handleSendMessage = () => {
@@ -41,12 +42,11 @@ const Preview = () => {
     }
   }, [messages]);
 
-  // Focus the input field when the component mounts and after the bot responds
   useEffect(() => {
-    if (inputRef.current && !loading) {
+    if (inputRef.current && hasInputFocused && !loading) {
       inputRef.current.focus();
     }
-  }, [loading]); // Re-run this effect whenever the loading state changes
+  }, [loading, hasInputFocused]); // Focus only if the user has interacted
 
   return (
     <div className="flex w-auto flex-col gap-2 font-baloo2 text-[#F5F2FA] rounded-lg">
@@ -116,6 +116,7 @@ const Preview = () => {
             onKeyDown={(e) => {
               if (e.key === "Enter" && !loading) handleSendMessage(); // Send message on Enter key press
             }}
+            onFocus={() => setHasInputFocused(true)} // Track first click
             className={`w-full bg-[linear-gradient(180deg,rgba(255,255,255,0.02)_0%,rgba(255,255,255,0.1)_100%)] 
             p-2 placeholder:text-[#F5F2FA] backdrop-blur-[20px] rounded-lg text-white bg-transparent ${
               loading ? "opacity-50 cursor-not-allowed" : ""
@@ -125,7 +126,7 @@ const Preview = () => {
             }
             disabled={loading} // Disable input when loading
             ref={inputRef} // Ref for the input field
-            autoFocus // Automatically focus the input field on initial render
+            // Automatically focus the input field on initial render
           />
           <button
             onClick={handleSendMessage}

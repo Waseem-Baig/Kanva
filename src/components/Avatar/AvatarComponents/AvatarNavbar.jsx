@@ -16,9 +16,12 @@ const AvatarNavbar = ({ setSidebarOpen, classes }) => {
   const breadcrumbs = pathSegments.map((segment, index, array) => {
     const href = "/" + array.slice(0, index + 1).join("/");
     return {
-      name: segment.replace(/-/g, " "), // Replace hyphens with spaces
+      name: segment
+        .replace(/-/g, " ") // Replace hyphens with spaces
+        .replace(/([a-z])([A-Z])/g, "$1 $2") // Insert spaces in camelCase
+        .replace(/\b\w/g, (char) => char.toUpperCase()), // Capitalize words
       href,
-      isCurrent: index === array.length - 1, // Check if it's the last segment
+      isCurrent: index === array.length - 1,
     };
   });
 

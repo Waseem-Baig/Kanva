@@ -5,7 +5,7 @@ const ApisCard = ({ heading, id, status }) => {
   return (
     <div className="group relative flex flex-col bg-[#00000080] gap-3 pt-8 pb-6 px-6 rounded-lg shadow-[0px_30px_60px_#0000001A,0px_15px_30px_#0000000D,0px_5px_10px_#00000040,0px_50px_100px_#FFFFFF26_inset] backdrop-blur-[20px] justify-center items-center font-baloo2 text-[#FFFFFF] transition-all duration-300">
       {/* Heading that moves up on hover */}
-      <h2 className="text-center font-jost font-semibold text-lg transform transition-all duration-300 group-hover:-translate-y-3">
+      <h2 className="text-center font-jost font-semibold text-2xl transform transition-all duration-300 group-hover:-translate-y-3 group-hover:text-sm">
         {heading}
       </h2>
 
@@ -20,8 +20,8 @@ const ApisCard = ({ heading, id, status }) => {
           />
           <Image
             src={"/svgs/robo.svg"}
-            width={50}
-            height={50}
+            width={60}
+            height={60}
             alt="Robo"
             className="bg-[#D9D9D9] p-1 rounded-lg"
           />
