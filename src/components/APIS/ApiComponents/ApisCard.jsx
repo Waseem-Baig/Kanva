@@ -13,7 +13,7 @@ const ApisCard = ({ heading, id, status }) => {
       <div className="flex flex-col gap-1 items-center transform scale-y-0 opacity-0 transition-all duration-500 ease-in-out group-hover:scale-y-100 group-hover:opacity-100">
         <div className="flex">
           <Image
-            src={"/svgs/polygonLeft.svg"}
+            src={"/svgs/PolygonLeft.svg"}
             width={10}
             height={10}
             alt="Left"
@@ -26,7 +26,7 @@ const ApisCard = ({ heading, id, status }) => {
             className="bg-[#D9D9D9] p-1 rounded-lg"
           />
           <Image
-            src={"/svgs/polygonRight.svg"}
+            src={"/svgs/PolygonRight.svg"}
             width={10}
             height={10}
             alt="Right"
