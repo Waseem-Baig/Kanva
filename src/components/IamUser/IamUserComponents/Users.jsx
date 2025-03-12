@@ -97,6 +97,7 @@ const Users = () => {
           </tbody>
         </table>
       </div>
+      {/* Pagination */}
       <div className="flex justify-center items-center gap-2 mt-4">
         <button
           onClick={() => handlePageChange(currentPage - 1)}

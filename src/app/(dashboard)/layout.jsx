@@ -45,7 +45,7 @@ const Layout = ({ children }) => {
           isMobile && sidebarOpen ? "blur-md pointer-events-none" : ""
         }`}
       >
-        <Navbar setSidebarOpen={toggleSidebar} />
+        <Navbar setSidebarOpen={toggleSidebar} isMobile={isMobile} />
 
         {/* Dynamic Page Content */}
         <div className="flex flex-col gap-4 pb-4">{children}</div>

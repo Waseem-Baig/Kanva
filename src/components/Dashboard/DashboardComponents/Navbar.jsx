@@ -20,6 +20,11 @@ const Navbar = ({ setSidebarOpen, classes, isMobile }) => {
     };
   }, []);
 
+  const handlePopUpClose = (e) => {
+    e.preventDefault();
+    setIsPopupOpen(false);
+  };
+
   return (
     <div className="flex justify-between px-4 py-2 bg-[linear-gradient(290.78deg,_rgba(55,32,84,0.5)_0%,_rgba(84,32,164,0.5)_100%)] w-full h-auto font-baloo2 text-[#FFFFFF] text-sm rounded-lg items-center gap-6 mb-4 z-10 relative">
       <button
@@ -33,11 +38,13 @@ const Navbar = ({ setSidebarOpen, classes, isMobile }) => {
           alt="sidebar"
         />
       </button>
-      <p className="font-semibold">Hi, Cisco Pvt Ltd </p>
-      <p className={`font-semibold ${isMobile && "hidden"}`}>
+      <p className={`font-bold ${isMobile ? "hidden" : ""}`}>
+        Hi, Cisco Pvt Ltd{" "}
+      </p>
+      <p className={`font-semibold ${isMobile ? "hidden" : ""}`}>
         <span className="text-[#D9D9D9] font-normal">Admin :</span> Waseem
       </p>
-      <p className={`font-semibold  ${isMobile && "hidden"}`}>
+      <p className={`font-semibold ${isMobile ? "hidden" : ""}`}>
         <span className={`text-[#D9D9D9] font-normal`}>Account ID :</span>{" "}
         #245689553
       </p>
@@ -73,6 +80,7 @@ const Navbar = ({ setSidebarOpen, classes, isMobile }) => {
             <Link
               href={"/profile"}
               className="px-4 py-3 rounded-lg hover:bg-[radial-gradient(80.74%_141.53%_at_0%_49.21%,_rgba(159,121,217,0.3)_20%,_rgba(84,32,164,0.3)_65%,_rgba(0,0,0,0)_100%)] hover:duration-500 flex gap-1 justify-start items-center"
+              onClick={handlePopUpClose}
             >
               <Image
                 src="/svgs/profile.svg"
@@ -85,6 +93,7 @@ const Navbar = ({ setSidebarOpen, classes, isMobile }) => {
             <Link
               href={"/settings"}
               className="px-4 py-3 rounded-lg hover:bg-[radial-gradient(80.74%_141.53%_at_0%_49.21%,_rgba(159,121,217,0.3)_20%,_rgba(84,32,164,0.3)_65%,_rgba(0,0,0,0)_100%)] hover:duration-500 flex gap-1 justify-start items-center"
+              onClick={handlePopUpClose}
             >
               <Image
                 src="/svgs/settings.svg"
@@ -97,7 +106,10 @@ const Navbar = ({ setSidebarOpen, classes, isMobile }) => {
             <Link
               href={"/login"}
               className="px-4 py-3 rounded-lg hover:bg-[radial-gradient(80.74%_141.53%_at_0%_49.21%,_rgba(159,121,217,0.3)_20%,_rgba(84,32,164,0.3)_65%,_rgba(0,0,0,0)_100%)] hover:duration-500 text-[#FF453A] flex gap-1 justify-start items-center"
-              onClick={() => alert("Logged out")}
+              onClick={() => {
+                alert("Logged out");
+                handlePopUpClose;
+              }}
             >
               <Image
                 src="/svgs/logout.svg"

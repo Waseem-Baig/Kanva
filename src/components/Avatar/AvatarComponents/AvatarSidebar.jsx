@@ -26,7 +26,8 @@ const Sidebar = ({ sidebarOpen, isMobile, setSidebarOpen, label }) => {
   const renderMenu = () => (
     <div className="flex flex-col w-full px-2 gap-4 text-[#E0E0E0]">
       {menuItems.map((item, index) => {
-        const isActive = pathname === item.href;
+        const isActive =
+          pathname === item.href || pathname.startsWith(`${item.href}/`);
 
         return (
           <Link

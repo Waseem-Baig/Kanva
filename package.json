@@ -12,6 +12,8 @@
     "@fontsource/baloo-2": "^5.1.1",
     "@fontsource/jost": "^5.1.2",
     "@next/font": "^14.2.15",
+    "axios": "^1.8.2",
+    "js-cookie": "^3.0.5",
     "next": "15.1.6",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
